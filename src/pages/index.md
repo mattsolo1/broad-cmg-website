@@ -1,21 +1,21 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Broad Center for Mendelian Genomics
 image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+heading: Learn about our disease areas of focus
+subheading: A collaborative community focused on gene discovery.
 mainpitch:
-  title: Why Kaldi
-  description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
-description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+  title: Our Mission
+  description: >-
+    The goal of the CMG program is to discover new genes that underlie Mendelian
+    diseases. To that end, our Center applies large-scale genomic methods -
+    exome, whole-genome and transcriptome sequencing - to thousands of
+    undiagnosed rare disease families. Our approach to gene discovery is
+    characterized by deep interactions between our informatics team and clinical
+    collaborators, using a secure online analysis platform, seqr, and by rapid
+    and open sharing of resources and data with the wider rare disease
+    community.
+description: Learn about our disease areas of focus
 intro:
   blurbs:
     - image: /img/coffee.png
@@ -68,3 +68,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+
