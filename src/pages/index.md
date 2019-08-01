@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Broad Center for Mendelian Genomics!
-image: /img/entrance.jpg
+image: /img/world.png
 heading: Learn about our disease areas of focus
 subheading: A collaborative community focused on gene discovery.
 mainpitch:
