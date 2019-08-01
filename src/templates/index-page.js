@@ -8,7 +8,13 @@ import Features from '../components/Features'
 
 const Welcome = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  .welcome-top-section {
+    padding-left: 50px;
+    display: flex;
+    flex-direction: row;
+  }
 
   .welcome-left {
     padding-left: 50px;
@@ -31,15 +37,39 @@ const Actions = styled.div`
 `
 
 export const IndexPageTemplate = ({image, title, subheading, intro}) => {
-  console.log('hey', image.childImageSharp.fluid)
+  const IntroItemsWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+  `
+
+  const IntroItem = styled.div`
+    border: 1px solid black;
+  `
+
+  const IntroItems = () => (
+    <IntroItemsWrapper>
+      {intro.blurbs.map((item, i) => {
+        return (
+          <IntroItem key={`intro-item-${i}`}>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </IntroItem>
+        )
+      })}
+    </IntroItemsWrapper>
+  )
+
   return (
     <Welcome>
-      <div className="welcome-left">
-        <h1>{title}</h1>
+      <div className="welcome-top-section">
+        <div className="welcome-left">
+          <h1>{title}</h1>
+        </div>
+        <div className="welcome-right">
+          <img src={image.childImageSharp.fluid.src} />
+        </div>
       </div>
-      <div className="welcome-right">
-        <img src={image.childImageSharp.fluid.src} />
-      </div>
+      <IntroItems />
     </Welcome>
   )
 }
@@ -89,6 +119,12 @@ export const pageQuery = graphql`
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+        intro {
+          blurbs {
+            text
+            title
           }
         }
       }
