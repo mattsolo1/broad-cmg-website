@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Welcome to the Broad Center for Mendelian Genomics!!
+title: Welcome to the Broad Center for Mendelian Genomics
 image: /img/world.png
 subheading: The CMG program aims to discover new genes that underlie Mendelian diseases.
 intro:
