@@ -1,83 +1,65 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
+import styled from 'styled-components'
+
+const NavBarContainer = styled.nav`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #006DB6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+`
+
+const LogoContainer = styled.div`
+`
+
+const NavMenu = styled.div`
+  flex-direction: row;
+  margin-top: 10px;
+`
+
+const NavLink = styled(Link)`
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  padding-left: 50px;
+`
 
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    }
-  }
-
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
-    )
   }
 
   render() {
     return (
-      <nav
-        className="navbar is-transparent"
+      <NavBarContainer
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <h1>Broad Center for Mendelian Genomics</h1> 
+        <LogoContainer>
+            <Link to="/">
+              <img width="300" height="50" src="/img/broad_cmg_logo.png" />
             </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                Home 
-              </Link>
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/apply">
-                Apply 
-              </Link>
-              <Link className="navbar-item" to="/investigators">
-                Investigators
-              </Link>
-              <Link className="navbar-item" to="/request-data-access">
-                Request Data Access 
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+        </LogoContainer>
+        <NavMenu>
+          <NavLink to="/about">
+            Overview 
+          </NavLink>
+          <NavLink to="/about">
+            Workflow
+          </NavLink>
+          <NavLink to="/apply">
+            About 
+          </NavLink>
+          <NavLink to="/investigators">
+            Events
+          </NavLink>
+        </NavMenu>
+      </NavBarContainer>
     )
   }
 }

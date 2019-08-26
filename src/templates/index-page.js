@@ -12,6 +12,7 @@ const Welcome = styled.div`
 
   .welcome-top-section {
     padding-left: 50px;
+    padding-top: 50px;
     display: flex;
     flex-direction: row;
   }
@@ -25,10 +26,17 @@ const Welcome = styled.div`
 
   h1 {
     font-size: 50px;
+    font-weight: bold;
   }
 
   h2 {
   }
+`
+
+const Subtitle = styled.div`
+  font-size: 28px;
+  margin-top: 20px;
+  padding-right: 30px;
 `
 
 const Actions = styled.div`
@@ -40,10 +48,22 @@ export const IndexPageTemplate = ({image, title, subheading, intro}) => {
   const IntroItemsWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
   `
 
   const IntroItem = styled.div`
     border: 1px solid black;
+    width: 40%;
+    margin-right: 30px;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    h3 {
+      color: #00afd7;
+      font-size: 22px;
+      font-weight: bold;
+    }
   `
 
   const IntroItems = () => (
@@ -64,9 +84,12 @@ export const IndexPageTemplate = ({image, title, subheading, intro}) => {
       <div className="welcome-top-section">
         <div className="welcome-left">
           <h1>{title}</h1>
+          <Subtitle>
+            {subheading} 
+          </Subtitle>
         </div>
         <div className="welcome-right">
-          <img src={image.childImageSharp.fluid.src} />
+          <img src="/img/world.png" />
         </div>
       </div>
       <IntroItems />
@@ -114,13 +137,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         subheading
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         intro {
           blurbs {
             text
